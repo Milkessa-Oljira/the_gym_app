@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ExerciseAnimation from '../components/ExerciseAnimation';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
 import { Check, X, ArrowRight, Save, Dumbbell } from 'lucide-react';
@@ -91,7 +92,7 @@ export default function Workout() {
   return (
     <div className="p-6 pt-12 flex flex-col h-full bg-[#0f172a]">
       {/* Header Progress */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-sm font-bold text-[#3b82f6] uppercase tracking-wider">{theme.name}</h2>
           <p className="text-xl font-bold text-white">{currentExercise.name}</p>
@@ -99,6 +100,12 @@ export default function Workout() {
         <div className="text-xl font-black text-[#334155]">
           <span className="text-white">{currentExerciseIndex + 1}</span> / {theme.exercises.length}
         </div>
+      </div>
+
+      {/* SVG Animation Frame */}
+      <div className="w-full h-48 bg-[#1e293b]/50 rounded-2xl border border-white/5 mb-6 overflow-hidden flex-shrink-0 relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/50 to-transparent pointer-events-none z-10" />
+        <ExerciseAnimation exerciseId={currentExercise.id} />
       </div>
 
       {/* Sets Logger */}
