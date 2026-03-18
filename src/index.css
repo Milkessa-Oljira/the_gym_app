@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  
+  --color-bg-base: #0f172a; /* deep charcoal */
+  --color-bg-card: #1e293b; /* lighter base for cards */
+  --color-bg-elevated: #334155; /* even lighter for popups */
+  
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  
+  --color-success-500: #22c55e;
+  --color-danger-500: #ef4444;
+  --color-warning-500: #eab308;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-bg-base)] text-[var(--color-text-primary)] font-sans antialiased m-0 p-0 overflow-x-hidden w-full h-full;
+  }
+}
+
+.glass-panel {
+  @apply bg-[var(--color-bg-card)]/80 backdrop-blur-md border border-white/10 shadow-lg rounded-2xl;
+}
+
+.clickable {
+  @apply active:scale-95 transition-all duration-200 cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-brand-600 hover:bg-brand-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-200 active:scale-95 cursor-pointer flex items-center justify-center;
+}
+
+.btn-secondary {
+  @apply bg-bg-elevated hover:bg-white/20 text-text-primary font-medium py-3 px-6 rounded-xl transition-all duration-200 active:scale-95 cursor-pointer flex items-center justify-center;
+}
